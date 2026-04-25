@@ -1,0 +1,129 @@
+USE hr;
+
+-- DML (DATA MANIPULATION LANGUAGE)
+UPDATE STUDENTS
+SET GPA = 2
+WHERE NAME = 'John Cena';
+
+DELETE FROM STUDENTS
+WHERE NAME = 'John Cena';
+
+SELECT * FROM STUDENTS;
+
+-- INSERT INTO STUDENTS
+-- VALUES (2, 'Zarek Tia', 'Fokirapool', 3.90);
+
+
+
+-- CREATE TABLE STUDENTS (
+--     STD_ID INT PRIMARY KEY,
+--     NAME VARCHAR(10),
+--     ADDR VARCHAR(20),
+--     GPA DECIMAL(3,2)
+-- );
+
+
+-- (SELECT EMPLOYEE_ID
+-- FROM EMPLOYEES)
+-- INTERSECT
+-- (SELECT EMPLOYEE_ID
+-- FROM JOB_HISTORY);
+
+
+
+
+
+
+
+
+-- Find the salaries of employees whose salary is within 5000 range of
+-- the average salary of the SALES department.
+
+-- SELECT SALARY
+-- FROM EMPLOYEES
+-- WHERE SALARY BETWEEN (
+--     SELECT AVG(SALARY)-5000
+--     FROM EMPLOYEES
+--     WHERE DEPARTMENT_ID = (
+--         SELECT DEPARTMENT_ID
+--         FROM DEPARTMENTS
+--         WHERE DEPARTMENT_NAME = 'SALES'
+--     )
+-- ) AND (
+--     SELECT AVG(SALARY)+5000
+--     FROM EMPLOYEES
+--     WHERE DEPARTMENT_ID = (
+--         SELECT DEPARTMENT_ID
+--         FROM DEPARTMENTS
+--         WHERE DEPARTMENT_NAME = 'SALES'
+--     )
+-- );
+
+
+
+
+
+
+
+
+-- Find the last names, salaries and job_id of employees who do not work in
+-- 'IT_PROG' job and whose salary is greater than all the salaries in 'IT_PROG' job.
+-- SELECT LAST_NAME, SALARY, JOB_ID
+-- FROM EMPLOYEES
+-- WHERE JOB_ID <> 'IT_PROG'
+--     AND SALARY > (
+--     SELECT MAX(SALARY)
+--     FROM EMPLOYEES
+--     WHERE JOB_ID = 'IT_PROG'
+-- );
+
+
+
+-- Find the last names of employees who work in the same job as employee_id = 141.
+-- SELECT LAST_NAME
+-- FROM EMPLOYEES
+-- WHERE JOB_ID = (SELECT JOB_ID FROM EMPLOYEES WHERE EMPLOYEE_ID = 141);
+
+
+
+-- Find the last names and salaries of employees whose salary is greater 
+-- than that of 'Ernst'.
+
+-- SELECT LAST_NAME, SALARY
+-- FROM EMPLOYEES
+-- WHERE SALARY > (
+--     SELECT SALARY
+--     FROM EMPLOYEES
+--     WHERE LAST_NAME = 'Ernst'
+-- );
+
+
+-- FIND THE SALARY OF Ernst FROM EMPLOYEES TABLE
+;
+
+
+
+-- Find the first names of employees and last names of their managers
+
+-- SELECT 
+--     E1.FIRST_NAME, E2.LAST_NAME
+-- FROM 
+--     EMPLOYEES E1 JOIN EMPLOYEES E2
+--     ON E1.MANAGER_ID = E2.EMPLOYEE_ID
+-- ;
+
+-- SELECT 
+--     EMPLOYEE_ID,
+--     DEPARTMENT_NAME
+-- FROM 
+--     EMPLOYEES E JOIN DEPARTMENTS D
+--     ON E.DEPARTMENT_ID = D.DEPARTMENT_ID
+-- ;
+
+
+-- SELECT
+--     EMPLOYEE_ID,
+--     SALARY,
+--     COMMISSION_PCT,
+--     SALARY + SALARY*NVL(COMMISSION_PCT, 0) AS UPDATED_SALRY
+-- FROM EMPLOYEES;
