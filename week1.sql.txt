@@ -1,0 +1,22 @@
+USE hr;
+
+-- SORTING
+
+SELECT 
+    employee_id,
+    salary
+FROM 
+    employees
+ORDER BY salary, department_id
+;
+
+
+-- SELECT 
+--     COUNTRY_NAME,
+--     CASE
+--         WHEN COUNTRY_NAME = 'Argentina' THEN UPPER(COUNTRY_NAME)
+--         WHEN COUNTRY_NAME = 'Brazil' THEN LOWER(COUNTRY_NAME)
+--     END AS RIGHTFUL_NAMES
+-- FROM COUNTRIES
+-- WHERE COUNTRY_NAME IN ('Argentina', 'Brazil') 
+-- ;
